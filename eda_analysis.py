@@ -1,0 +1,31 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("placement_data.csv")
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df["Placed"].value_counts())
+plt.figure()
+df.groupby("Placed")["CGPA"].mean().plot(kind="bar")
+plt.title("Average CGPA vs Placement")
+plt.xlabel("Placed")
+plt.ylabel("Average CGPA")
+plt.show()
+skills = ["Python", "SQL", "DSA", "ML", "WebDev"]
+
+for skill in skills:
+    plt.figure()
+    df.groupby(skill)["Placed"].mean().plot(kind="bar")
+    plt.title(f"Placement Rate vs {skill}")
+    plt.ylabel("Placement Rate")
+    plt.show()
+plt.figure()
+df.groupby("Internship")["Placed"].mean().plot(kind="bar")
+plt.title("Placement Rate vs Internship")
+plt.ylabel("Placement Rate")
+plt.show()
+plt.figure()
+df.groupby("Backlogs")["Placed"].mean().plot(kind="bar")
+plt.title("Placement Rate vs Backlogs")
+plt.ylabel("Placement Rate")
+plt.show()
