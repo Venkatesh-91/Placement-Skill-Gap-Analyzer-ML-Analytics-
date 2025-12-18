@@ -104,4 +104,3 @@ print("Missing Skills:", missing)
 # Calculate placement probability
 prob = placement_probability(user_profile, required)
 print(f"\nEstimated Placement Probability: {prob}%")
-
